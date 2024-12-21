@@ -1,3 +1,5 @@
+print("v1")
+
 --[[ Pepsi's UI Library
 Better and updated web-based docs are planned in distant future.
 Library v0.36 [
@@ -2019,6 +2021,7 @@ function library:CreateWindow(options, ...)
 	local tabHolderPadding = Instance_new("UIPadding")
 	local headline = Instance_new("TextLabel")
 	local splitter = Instance_new("TextLabel")
+    local uiAspectRatio = Instance_new("UIAspectRatioConstraint")
 	local submenuOpen = nil
 	library.globals["__Window" .. options.Name] = {
 		submenuOpen = submenuOpen
@@ -2036,8 +2039,10 @@ function library:CreateWindow(options, ...)
 	main.BorderColor3 = library.colors.outerBorder
 	colored[1 + #colored] = {main, "BorderColor3", "outerBorder"}
 	main.Position = UDim2.fromScale(0.5, 0.5)
-	main.Size = UDim2.fromOffset(500, 545)
+	main.Size = UDim2.new(0.412, 0,0.796, 0)
 	makeDraggable(main, main)
+    uiAspectRatio.AspectRatio = 0.917
+    uiAspectRatio.Parent = main
 	mainBorder.Name = "mainBorder"
 	mainBorder.Parent = main
 	mainBorder.AnchorPoint = Vector2.new(0.5, 0.5)
